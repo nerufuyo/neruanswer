@@ -1,77 +1,77 @@
 # AI Interview Assistant
 
-Chrome extension yang membantu menjawab pertanyaan interview dengan AI secara real-time melalui floating overlay.
+Chrome extension that helps answer interview questions with AI in real-time through a floating overlay.
 
-## Fitur Utama
+## Key Features
 
-- **Deteksi Otomatis**: Mendeteksi pertanyaan interview secara otomatis dari berbagai platform
-- **AI-Powered**: Generate jawaban menggunakan OpenAI GPT atau Google Gemini
-- **Floating Overlay**: Interface yang dapat di-lock dan di-posisikan di atas layar
-- **Real-time**: Bekerja secara real-time selama sesi interview
-- **Platform Support**: Mendukung HireVue, myInterview, Spark Hire, dan platform lainnya
-- **Multi-bahasa**: Dukungan bahasa Indonesia dan Inggris
+- **Auto Detection**: Automatically detects interview questions from various platforms
+- **AI-Powered**: Generate answers using OpenAI GPT or Google Gemini
+- **Floating Overlay**: Interface that can be locked and positioned over the screen
+- **Real-time**: Works in real-time during interview sessions
+- **Platform Support**: Supports HireVue, myInterview, Spark Hire, and other platforms
+- **Multi-language**: Indonesian and English language support
 
-## Instalasi
+## Installation
 
-### Metode 1: Dari Source Code
-1. Download atau clone repository ini
-2. Buka Chrome dan navigasi ke `chrome://extensions/`
-3. Aktifkan "Developer mode" di pojok kanan atas
-4. Klik "Load unpacked" dan pilih folder project ini
-5. Extension akan muncul di toolbar Chrome
+### Method 1: From Source Code
+1. Download or clone this repository
+2. Open Chrome and navigate to `chrome://extensions/`
+3. Enable "Developer mode" in the top right corner
+4. Click "Load unpacked" and select this project folder
+5. Extension will appear in Chrome toolbar
 
-### Metode 2: Dari Chrome Web Store
-(Akan tersedia setelah publikasi)
+### Method 2: From Chrome Web Store
+(Available after publication)
 
-## Setup Awal
+## Initial Setup
 
-1. **Klik icon extension** di toolbar Chrome
-2. **Pilih AI Provider**: OpenAI atau Google Gemini
-3. **Masukkan API Key**:
-   - OpenAI: Dapatkan dari [platform.openai.com](https://platform.openai.com/api-keys)
-   - Gemini: Dapatkan dari [Google AI Studio](https://makersuite.google.com/app/apikey)
-4. **Test API Key** dengan klik tombol test
-5. **Aktifkan extension** dengan toggle utama
-6. **Atur preferences** sesuai kebutuhan
+1. **Click extension icon** in Chrome toolbar
+2. **Choose AI Provider**: OpenAI or Google Gemini
+3. **Enter API Key**:
+   - OpenAI: Get from [platform.openai.com](https://platform.openai.com/api-keys)
+   - Gemini: Get from [Google AI Studio](https://makersuite.google.com/app/apikey)
+4. **Test API Key** by clicking test button
+5. **Enable extension** with main toggle
+6. **Configure preferences** as needed
 
 ## Environment Configuration
 
-Copy file `.env.example` menjadi `.env` dan sesuaikan konfigurasi:
+Copy `.env.example` file to `.env` and adjust configuration:
 
 ```bash
 cp .env.example .env
 ```
 
-Edit file `.env` sesuai kebutuhan:
+Edit `.env` file as needed:
 ```env
 AI_PROVIDER=openai
 OPENAI_API_KEY=your_api_key_here
-DEFAULT_LANGUAGE=id
+DEFAULT_LANGUAGE=en
 AUTO_DETECT_QUESTIONS=true
 ```
 
-## Cara Penggunaan
+## How to Use
 
 ### Automatic Mode (Recommended)
-1. Buka platform interview (HireVue, myInterview, dll.)
-2. Aktifkan extension melalui popup atau klik icon
-3. Overlay akan muncul di pojok kanan atas
-4. Extension akan otomatis mendeteksi pertanyaan baru
-5. Jawaban AI akan muncul di overlay dalam beberapa detik
+1. Open interview platform (HireVue, myInterview, etc.)
+2. Activate extension through popup or click icon
+3. Overlay will appear in top right corner
+4. Extension will automatically detect new questions
+5. AI answer will appear in overlay within seconds
 
 ### Manual Mode
-1. Aktifkan extension
-2. Klik "Detect Question" di popup untuk force detection
-3. Atau klik "Regenerate" di overlay untuk jawaban baru
+1. Activate extension
+2. Click "Detect Question" in popup to force detection
+3. Or click "Regenerate" in overlay for new answer
 
 ### Overlay Controls
 - **Minimize**: Minimize/maximize overlay
-- **Lock/Unlock**: Lock/unlock posisi overlay
+- **Lock/Unlock**: Lock/unlock overlay position
 - **Close**: Hide overlay
-- **Copy**: Copy jawaban ke clipboard
-- **Regenerate**: Generate ulang jawaban
+- **Copy**: Copy answer to clipboard
+- **Regenerate**: Generate new answer
 
-## Platform yang Didukung
+## Supported Platforms
 
 ### Fully Supported
 - HireVue
@@ -82,45 +82,45 @@ AUTO_DETECT_QUESTIONS=true
 - Interview.com
 
 ### Partially Supported
-- Zoom (perlu deteksi manual)
-- Google Meet (perlu deteksi manual)
-- Microsoft Teams (perlu deteksi manual)
+- Zoom (requires manual detection)
+- Google Meet (requires manual detection)
+- Microsoft Teams (requires manual detection)
 
 ### Not Supported
-- Platform dengan heavy encryption
-- Platform yang memblokir extensions
+- Platforms with heavy encryption
+- Platforms that block extensions
 
 ## Troubleshooting
 
-### Extension Tidak Muncul
-- Pastikan sudah mengaktifkan extension di popup
-- Refresh halaman interview
-- Periksa apakah platform didukung
+### Extension Not Appearing
+- Make sure extension is activated in popup
+- Refresh interview page
+- Check if platform is supported
 
-### Tidak Mendeteksi Pertanyaan
-- Klik "Detect Question" di popup
-- Pastikan pertanyaan terlihat jelas di layar
-- Coba scroll atau klik area pertanyaan
+### Not Detecting Questions
+- Click "Detect Question" in popup
+- Make sure question is clearly visible on screen
+- Try scrolling or clicking question area
 
-### Gagal Generate Jawaban
-- Periksa API key sudah benar
-- Test API key di popup
-- Pastikan ada koneksi internet
-- Cek limit API quota
+### Failed to Generate Answer
+- Check API key is correct
+- Test API key in popup
+- Make sure internet connection is available
+- Check API quota limits
 
-### Overlay Tidak Muncul
-- Klik icon extension dan aktifkan
-- Refresh halaman
-- Periksa apakah overlay ter-minimize
+### Overlay Not Appearing
+- Click extension icon and activate
+- Refresh page
+- Check if overlay is minimized
 
-## Konfigurasi Lanjutan
+## Advanced Configuration
 
 ### AI Settings
 ```json
 {
   "aiProvider": "openai",
   "apiKey": "your-api-key",
-  "responseLanguage": "id",
+  "responseLanguage": "en",
   "maxResponseLength": 200
 }
 ```
@@ -136,38 +136,38 @@ AUTO_DETECT_QUESTIONS=true
 
 ## Privacy & Security
 
-- **Local Storage**: Semua data disimpan lokal di browser
-- **No Data Sharing**: Tidak ada data yang dikirim ke server pihak ketiga
-- **API Keys**: Disimpan terenkripsi di local storage
-- **Question History**: Hanya disimpan lokal, dapat dihapus kapan saja
+- **Local Storage**: All data stored locally in browser
+- **No Data Sharing**: No data sent to third-party servers
+- **API Keys**: Stored encrypted in local storage
+- **Question History**: Only stored locally, can be deleted anytime
 
 ## Contributing
 
-Kontribusi sangat diterima! Silakan:
+Contributions are welcome! Please:
 
 1. Fork repository
-2. Buat feature branch (`git checkout -b feature/amazing-feature`)
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push ke branch (`git push origin feature/amazing-feature`)
-5. Buat Pull Request
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Create Pull Request
 
 ## Changelog
 
 ### v1.0.0 (2024-12-XX)
 - Initial release
-- Support untuk platform interview utama
-- AI integration dengan OpenAI dan Gemini
-- Floating overlay dengan drag & drop
-- Auto-detection pertanyaan
+- Support for major interview platforms
+- AI integration with OpenAI and Gemini
+- Floating overlay with drag & drop
+- Auto-detection of questions
 - Multi-language support
 
 ## License
 
-MIT License - lihat file [LICENSE](LICENSE) untuk detail.
+MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Disclaimer
 
-Extension ini dibuat untuk tujuan pembelajaran dan latihan interview. Pastikan penggunaan sesuai dengan kebijakan platform interview yang digunakan. Pengembang tidak bertanggung jawab atas penyalahgunaan extension ini.
+This extension is created for learning purposes and interview practice. Please ensure usage complies with the policies of the interview platform being used. The developer is not responsible for misuse of this extension.
 
 ## Support
 
