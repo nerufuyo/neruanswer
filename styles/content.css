@@ -1,0 +1,64 @@
+/* Content styles for AI Interview Assistant */
+
+/* Ensure our styles don't interfere with page styles */
+.ai-interview-overlay,
+.ai-interview-overlay * {
+  all: unset !important;
+}
+
+/* Re-apply our specific styles */
+.ai-interview-overlay {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 350px !important;
+  min-height: 200px !important;
+  max-height: 500px !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  z-index: 999999 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  color: white !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  resize: both !important;
+  overflow: hidden !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+/* Hide from screenshots and recordings if needed */
+.ai-interview-overlay.hidden-from-recording {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .ai-interview-overlay {
+    width: 90vw !important;
+    max-width: 350px !important;
+    right: 5vw !important;
+    top: 10px !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .ai-interview-overlay {
+    border: 2px solid white !important;
+    background: #000080 !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .ai-interview-overlay,
+  .ai-interview-overlay * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Interview Assistant</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="popup-header">
+      <div class="popup-title">
+        <span class="popup-icon">🤖</span>
+        AI Interview Assistant
+      </div>
+      <div class="popup-version">v1.0</div>
+    </div>
+    
+    <!-- Status Section -->
+    <div class="status-section">
+      <div class="status-item">
+        <div class="status-label">Status</div>
+        <div class="status-value" id="status-value">
+          <span class="status-indicator" id="status-indicator"></span>
+          <span id="status-text">Checking...</span>
+        </div>
+      </div>
+      
+      <div class="status-item">
+        <div class="status-label">Platform</div>
+        <div class="status-value" id="platform-value">Unknown</div>
+      </div>
+      
+      <div class="status-item" id="question-status" style="display: none;">
+        <div class="status-label">Question Detected</div>
+        <div class="status-value" id="question-text">None</div>
+      </div>
+    </div>
+    
+    <!-- Main Toggle -->
+    <div class="toggle-section">
+      <label class="toggle-switch">
+        <input type="checkbox" id="main-toggle">
+        <span class="toggle-slider"></span>
+        <span class="toggle-label">Enable Extension</span>
+      </label>
+    </div>
+    
+    <!-- API Configuration -->
+    <div class="config-section">
+      <div class="section-title">AI Configuration</div>
+      
+      <div class="form-group">
+        <label for="ai-provider">AI Provider</label>
+        <select id="ai-provider" class="form-select">
+          <option value="openai">OpenAI (GPT-3.5)</option>
+          <option value="gemini">Google Gemini</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="api-key">API Key</label>
+        <div class="api-key-container">
+          <input type="password" id="api-key" class="form-input" placeholder="Enter your API key">
+          <button id="test-key" class="test-btn" title="Test API Key">🔍</button>
+        </div>
+        <div class="form-hint">
+          <span id="api-hint">Get your API key from OpenAI dashboard</span>
+          <a href="#" id="api-link" target="_blank">Get API Key</a>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="response-language">Response Language</label>
+        <select id="response-language" class="form-select">
+          <option value="id">Indonesian</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+    </div>
+    
+    <!-- Settings -->
+    <div class="settings-section">
+      <div class="section-title">Settings</div>
+      
+      <div class="setting-item">
+        <label class="setting-toggle">
+          <input type="checkbox" id="auto-detect">
+          <span class="setting-slider"></span>
+          <span class="setting-label">Auto-detect questions</span>
+        </label>
+      </div>
+      
+      <div class="setting-item">
+        <label class="setting-toggle">
+          <input type="checkbox" id="overlay-locked">
+          <span class="setting-slider"></span>
+          <span class="setting-label">Lock overlay position</span>
+        </label>
+      </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="actions-section">
+      <button id="force-detect" class="action-btn secondary">
+        🔍 Detect Question
+      </button>
+      <button id="view-history" class="action-btn secondary">
+        📝 View History
+      </button>
+    </div>
+    
+    <!-- Footer -->
+    <div class="popup-footer">
+      <div class="footer-links">
+        <a href="#" id="help-link">Help</a>
+        <a href="#" id="feedback-link">Feedback</a>
+      </div>
+    </div>
+    
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay" style="display: none;">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Loading...</div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

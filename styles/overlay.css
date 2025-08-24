@@ -1,0 +1,267 @@
+/* Overlay styles for AI Interview Assistant */
+
+.ai-interview-overlay {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 350px !important;
+  min-height: 200px !important;
+  max-height: 500px !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  z-index: 999999 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  color: white !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  resize: both !important;
+  overflow: hidden !important;
+}
+
+.ai-interview-overlay.locked {
+  resize: none !important;
+  user-select: none !important;
+}
+
+.ai-interview-overlay.minimized {
+  height: 60px !important;
+  min-height: 60px !important;
+  width: 250px !important;
+  resize: none !important;
+}
+
+.overlay-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 16px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 12px 12px 0 0 !important;
+  cursor: move !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.overlay-header.locked {
+  cursor: default !important;
+}
+
+.overlay-title {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.overlay-title::before {
+  content: '🤖' !important;
+  font-size: 16px !important;
+}
+
+.overlay-controls {
+  display: flex !important;
+  gap: 4px !important;
+  align-items: center !important;
+}
+
+.overlay-btn {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  width: 28px !important;
+  height: 28px !important;
+  color: white !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+.overlay-btn:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: scale(1.05) !important;
+}
+
+.overlay-btn:active {
+  transform: scale(0.95) !important;
+}
+
+.overlay-content {
+  padding: 16px !important;
+  height: calc(100% - 60px) !important;
+  overflow-y: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.minimized .overlay-content {
+  display: none !important;
+}
+
+.question-section {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  border-left: 3px solid #ffd700 !important;
+}
+
+.question-label {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #ffd700 !important;
+  margin-bottom: 6px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.question-text {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
+
+.answer-section {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  border-left: 3px solid #4ade80 !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.answer-label {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #4ade80 !important;
+  margin-bottom: 6px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.answer-text {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+  flex: 1 !important;
+  white-space: pre-wrap !important;
+}
+
+.answer-loading {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  color: #94a3b8 !important;
+  font-style: italic !important;
+}
+
+.loading-spinner {
+  width: 16px !important;
+  height: 16px !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  border-top: 2px solid white !important;
+  border-radius: 50% !important;
+  animation: spin 1s linear infinite !important;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg) !important; }
+  100% { transform: rotate(360deg) !important; }
+}
+
+.answer-actions {
+  display: flex !important;
+  gap: 8px !important;
+  margin-top: 12px !important;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 6px !important;
+  color: white !important;
+  padding: 6px 12px !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-weight: 500 !important;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.action-btn:active {
+  transform: scale(0.95) !important;
+}
+
+.status-indicator {
+  position: absolute !important;
+  top: -2px !important;
+  right: -2px !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  border: 2px solid white !important;
+  background: #ef4444 !important;
+}
+
+.status-indicator.active {
+  background: #22c55e !important;
+  animation: pulse 2s infinite !important;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.overlay-footer {
+  padding: 8px 16px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 0 0 12px 12px !important;
+  font-size: 11px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-align: center !important;
+}
+
+.minimized .overlay-footer {
+  display: none !important;
+}
+
+/* No-question state */
+.no-question {
+  text-align: center !important;
+  padding: 24px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.no-question-icon {
+  font-size: 32px !important;
+  margin-bottom: 12px !important;
+  opacity: 0.5 !important;
+}
+
+.no-question-text {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ai-interview-overlay {
+    width: 300px !important;
+    right: 10px !important;
+    top: 10px !important;
+  }
+}
