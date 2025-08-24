@@ -61,7 +61,7 @@ class QuestionDetector {
         clearTimeout(this.debounceTimeout);
         this.debounceTimeout = setTimeout(() => {
           this.detectQuestion();
-        }, 500);
+        }, CONFIG.PERFORMANCE.DEBOUNCE_TIMEOUT);
       }
     });
     
@@ -78,7 +78,7 @@ class QuestionDetector {
   setupPeriodicCheck() {
     this.detectionInterval = setInterval(() => {
       this.detectQuestion();
-    }, 3000); // Check every 3 seconds
+    }, CONFIG.PERFORMANCE.DETECTION_INTERVAL);
   }
   
   // Perform initial scan when starting

@@ -34,6 +34,22 @@ Chrome extension yang membantu menjawab pertanyaan interview dengan AI secara re
 5. **Aktifkan extension** dengan toggle utama
 6. **Atur preferences** sesuai kebutuhan
 
+## Environment Configuration
+
+Copy file `.env.example` menjadi `.env` dan sesuaikan konfigurasi:
+
+```bash
+cp .env.example .env
+```
+
+Edit file `.env` sesuai kebutuhan:
+```env
+AI_PROVIDER=openai
+OPENAI_API_KEY=your_api_key_here
+DEFAULT_LANGUAGE=id
+AUTO_DETECT_QUESTIONS=true
+```
+
 ## Cara Penggunaan
 
 ### Automatic Mode (Recommended)

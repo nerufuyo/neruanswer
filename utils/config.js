@@ -6,16 +6,21 @@ const CONFIG = {
     GEMINI: 'gemini'
   },
   
-  // Default settings
+  // Default settings - can be overridden by environment variables
   DEFAULT_SETTINGS: {
     enabled: false,
-    aiProvider: 'openai',
+    aiProvider: process?.env?.AI_PROVIDER || 'openai',
     apiKey: '',
-    overlayPosition: { x: 20, y: 20 },
-    overlayLocked: false,
-    autoDetect: true,
-    responseLanguage: 'id', // Indonesian
-    maxResponseLength: 200
+    overlayPosition: { 
+      x: parseInt(process?.env?.OVERLAY_DEFAULT_POSITION_X) || 20, 
+      y: parseInt(process?.env?.OVERLAY_DEFAULT_POSITION_Y) || 20 
+    },
+    overlayLocked: process?.env?.OVERLAY_LOCKED === 'true' || false,
+    autoDetect: process?.env?.AUTO_DETECT_QUESTIONS !== 'false',
+    responseLanguage: process?.env?.DEFAULT_LANGUAGE || 'id',
+    maxResponseLength: parseInt(process?.env?.MAX_RESPONSE_LENGTH) || 200,
+    enableCache: process?.env?.ENABLE_RESPONSE_CACHE !== 'false',
+    debugMode: process?.env?.DEBUG_MODE === 'true' || false
   },
   
   // Interview platform selectors
@@ -79,11 +84,19 @@ const CONFIG = {
   
   // Overlay configuration
   OVERLAY: {
-    MIN_WIDTH: 300,
-    MIN_HEIGHT: 200,
+    MIN_WIDTH: parseInt(process?.env?.OVERLAY_MIN_WIDTH) || 300,
+    MIN_HEIGHT: parseInt(process?.env?.OVERLAY_MIN_HEIGHT) || 200,
     MAX_WIDTH: 500,
     MAX_HEIGHT: 400,
     Z_INDEX: 999999
+  },
+  
+  // Performance settings
+  PERFORMANCE: {
+    DETECTION_INTERVAL: parseInt(process?.env?.DETECTION_INTERVAL_MS) || 3000,
+    DEBOUNCE_TIMEOUT: parseInt(process?.env?.DEBOUNCE_TIMEOUT_MS) || 500,
+    MAX_HISTORY_ENTRIES: parseInt(process?.env?.MAX_HISTORY_ENTRIES) || 50,
+    CACHE_EXPIRY_HOURS: parseInt(process?.env?.CACHE_EXPIRY_HOURS) || 24
   },
   
   // API endpoints

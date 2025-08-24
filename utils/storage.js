@@ -67,9 +67,10 @@ class StorageManager {
       
       history.unshift(entry);
       
-      // Keep only last 50 entries
-      if (history.length > 50) {
-        history.splice(50);
+      // Keep only configured number of entries
+      const maxEntries = CONFIG.PERFORMANCE.MAX_HISTORY_ENTRIES;
+      if (history.length > maxEntries) {
+        history.splice(maxEntries);
       }
       
       await this.storage.set({ history });
@@ -116,10 +117,10 @@ class StorageManager {
         timestamp: Date.now()
       };
       
-      // Clean old cache entries (older than 24 hours)
-      const oneDayAgo = Date.now() - (24 * 60 * 60 * 1000);
+      // Clean old cache entries based on configured expiry time
+      const expiryTime = Date.now() - (CONFIG.PERFORMANCE.CACHE_EXPIRY_HOURS * 60 * 60 * 1000);
       Object.keys(cache).forEach(key => {
-        if (cache[key].timestamp < oneDayAgo) {
+        if (cache[key].timestamp < expiryTime) {
           delete cache[key];
         }
       });
