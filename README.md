@@ -23,6 +23,55 @@ Chrome extension that helps answer interview questions with AI in real-time thro
 ### Method 2: From Chrome Web Store
 (Available after publication)
 
+## How to Run
+
+### Prerequisites
+- Google Chrome browser (version 88 or higher)
+- Valid API key from OpenAI or Google Gemini
+- Internet connection
+
+### Step-by-Step Installation and Setup
+
+#### 1. Install the Extension
+```bash
+# Clone the repository
+git clone https://github.com/nerufuyo/neruanswer.git
+cd neruanswer
+
+# Or download ZIP and extract
+```
+
+#### 2. Load Extension in Chrome
+1. Open Chrome and go to `chrome://extensions/`
+2. Enable **Developer mode** (toggle in top-right corner)
+3. Click **"Load unpacked"** button
+4. Select the `neruanswer` folder
+5. Extension icon should appear in toolbar
+
+#### 3. Configure API Key
+1. Click the extension icon in Chrome toolbar
+2. Select AI provider (OpenAI or Gemini)
+3. Enter your API key:
+   - **OpenAI**: Create account at [OpenAI](https://platform.openai.com/) → API Keys
+   - **Gemini**: Get key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+4. Click **Test** button to verify key works
+5. Enable the extension with main toggle
+
+#### 4. Test the Extension
+1. Navigate to any supported interview platform
+2. The extension should show green indicator for supported platforms
+3. Try manual detection with "Detect Question" button
+4. Overlay should appear in top-right corner
+
+### Quick Start Guide
+
+1. **Enable Extension**: Click toolbar icon → toggle ON
+2. **Visit Interview Site**: Go to HireVue, myInterview, etc.
+3. **Start Interview**: Begin your practice or real interview
+4. **Auto Detection**: Questions will be detected automatically
+5. **Get AI Answers**: Answers appear in floating overlay
+6. **Copy & Use**: Click copy button to get answer text
+
 ## Initial Setup
 
 1. **Click extension icon** in Chrome toolbar
@@ -48,6 +97,42 @@ AI_PROVIDER=openai
 OPENAI_API_KEY=your_api_key_here
 DEFAULT_LANGUAGE=en
 AUTO_DETECT_QUESTIONS=true
+```
+
+## Development Setup (For Developers)
+
+### Local Development
+```bash
+# 1. Clone and setup
+git clone https://github.com/nerufuyo/neruanswer.git
+cd neruanswer
+
+# 2. Configure environment
+cp .env.example .env
+# Edit .env file with your API keys
+
+# 3. Load in Chrome
+# - Go to chrome://extensions/
+# - Enable Developer mode
+# - Click "Load unpacked"
+# - Select neruanswer folder
+```
+
+### Testing and Debugging
+```bash
+# Enable debug mode in .env
+DEBUG_MODE=true
+
+# Test on platforms:
+# - HireVue: hirevue.com
+# - myInterview: myinterview.com  
+# - Spark Hire: spark-hire.com
+```
+
+### Building for Distribution
+```bash
+# Create production build
+zip -r neruanswer-v1.0.zip . -x "*.git*" "*.env*" "node_modules/*" "*.DS_Store*"
 ```
 
 ## How to Use
@@ -112,6 +197,49 @@ AUTO_DETECT_QUESTIONS=true
 - Click extension icon and activate
 - Refresh page
 - Check if overlay is minimized
+
+### Common Setup Issues
+
+#### "Extension Not Loading"
+```bash
+# Solution:
+1. Make sure you selected the correct folder (neruanswer)
+2. Check that manifest.json exists in the folder
+3. Disable other interview-related extensions
+4. Restart Chrome if needed
+```
+
+#### "API Key Invalid" 
+```bash
+# For OpenAI:
+1. Visit https://platform.openai.com/api-keys
+2. Create new API key
+3. Make sure you have billing set up
+4. Copy key exactly (starts with sk-)
+
+# For Gemini:
+1. Visit https://makersuite.google.com/app/apikey  
+2. Create API key for Gemini
+3. Enable Generative AI API in Google Cloud
+```
+
+#### "Questions Not Detected"
+```bash
+# Solutions:
+1. Check if website is supported (see platform list)
+2. Try manual detection button
+3. Make sure question text is visible on screen
+4. Check browser console for errors (F12)
+```
+
+#### "Permission Denied Errors"
+```bash
+# Solution:
+1. Make sure extension has permissions
+2. Check chrome://extensions/ settings
+3. Enable "Allow in incognito" if needed
+4. Restart browser after permission changes
+```
 
 ## Advanced Configuration
 
